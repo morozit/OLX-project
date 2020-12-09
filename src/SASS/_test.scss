@@ -1,0 +1,33 @@
+.test {
+  &__container {
+    @extend %container;
+  }
+  &-list {
+    @media screen and (min-width: $tablet-min) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  &__item {
+    border-color: $c-black;
+  }
+
+  // ! ITEM mobile & tablet
+  &-item:not(:last-child) {
+    @media screen and (max-width: $tablet-max) {
+      margin-bottom: 20px;
+    }
+  }
+
+  // ! ITEM desctop
+  &-item:not(:last-child) {
+    @media screen and (min-width: $desktop) {
+      margin-right: 30px;
+    }
+  }
+  &-item {
+    @media screen and (min-width: $desktop) {
+      flex-basis: calc((100% - 2 * 30px) / 3);
+    }
+  }
+}
